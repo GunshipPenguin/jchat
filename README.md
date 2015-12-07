@@ -7,23 +7,23 @@ JChat is a simple Client-Server chat program written entirely in Java. The clien
 Ensure that you have [Apache Ant](http://ant.apache.org) installed.
 
 ### Building both the client and server application
-* cd JChat
+* cd jchat
 * ant
 
 ### Building just the server application
-* cd JChat
+* cd jchat
 * ant build-server
 
 ### Building just the client application
-* cd JChat
+* cd jchat
 * ant build-client
 
 ### Generating JavaDocs
-* cd JChat
+* cd jchat
 * ant generate-javadoc
 
 ### Cleaning output directories
-* cd JChat
+* cd jchat
 * ant clean
 
 ## Help
