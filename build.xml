@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<project name="JChat" basedir="." default="build-all">
+	<property name="src.dir" value="src"/>
+	<property name="class.dir" value="classes"/>
+	<property name="jar.dir" value="jar"/>
+	<property name="doc.dir" value="doc"/>
+	
+	<target name="build-all" description="Build client and server application">
+		<antcall target="build-client" />
+		<antcall target="build-server" />
+	</target>
+
+	<target name="build-client" description="Build client application">
+		<mkdir dir="${class.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${class.dir}" source="1.7" target="1.7">
+			<include name="com/gunshippenguin/jchat/shared/*"/>
+			<include name="com/gunshippenguin/jchat/client/*"/>
+		</javac>
+		<jar destfile="${jar.dir}/jchat-client.jar" basedir="${class.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="com.gunshippenguin.jchat.client.UserInterface" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="build-server" description="Build server application">
+		<mkdir dir="${class.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${class.dir}" source="1.7" target="1.7">
+				<include name="com/gunshippenguin/jchat/shared/*"/>
+				<include name="com/gunshippenguin/jchat/server/*"/>
+		</javac>
+		<jar destfile="${jar.dir}/jchat-server.jar" basedir="${class.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="com.gunshippenguin.jchat.server.ChatServer" />
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="generate-javadoc" description="Generate documentation">
+	    <javadoc sourcepath="${src.dir}" destdir="${doc.dir}"/>
+	</target>
+
+	<target name="clean" description="Clean output directories">
+		<delete dir="${class.dir}" />
+		<delete dir="${jar.dir}" />
+		<delete dir="${doc.dir}" />
+	</target> 
+</project>

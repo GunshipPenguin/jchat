@@ -1,0 +1,9 @@
+#Eclipse IDE
+.classpath
+.project
+bin
+
+#Ant build directories
+classes
+jar
+doc
